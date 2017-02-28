@@ -7,7 +7,7 @@ RUN apk add -q --no-cache \
   coreutils nodejs
 
 RUN pip3 install --upgrade pip
-RUN pip3 install awscli
+RUN pip3 install awscli logentries
 
 RUN curl -fsSLO https://github.com/docker/machine/releases/download/v0.9.0/docker-machine-Linux-x86_64
 RUN mv docker-machine-Linux-x86_64 /usr/local/bin/docker-machine
