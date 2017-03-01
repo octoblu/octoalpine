@@ -3,7 +3,7 @@ MAINTAINER Octoblu <docker@octoblu.com>
 
 RUN apk add -q --no-cache \
   curl docker openssh-client \
-  bash jq python python3 \
+  bash jq python2 python2-dev py-setuptools \
   gettext coreutils nodejs
 
 RUN curl -fsSLO https://github.com/docker/machine/releases/download/v0.9.0/docker-machine-Linux-x86_64
@@ -16,8 +16,5 @@ RUN chmod +x /usr/local/bin/docker
 
 RUN adduser -D -u 501 octoblu
 
-RUN pip3 install --upgrade pip && \
-  pip install --upgrade pip
-RUN pip3 install awscli && \
-  pip install logentries-lecli
-
+RUN easy_install-2.7 pip && pip install --upgrade pip
+RUN pip install awscli logentries-lecli
