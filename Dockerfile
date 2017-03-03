@@ -6,14 +6,17 @@ RUN apk add -q --no-cache \
   bash jq python2 python2-dev py-setuptools \
   gettext coreutils nodejs fish vim
 
-RUN adduser -D -u 501 octoblu
-RUN touch /.viminfo && chown 501:501 /.viminfo
+RUN touch /.viminfo && chmod 777 /.viminfo
 
 RUN easy_install-2.7 pip && pip install --upgrade pip
 RUN pip install awscli logentries-lecli
 
-COPY config /home/octoblu/.config/omf/
-RUN chown -R octoblu:octoblu /home/octoblu/.config
+COPY config /usr/local/etc/omf
 RUN curl --silent -L http://get.oh-my.fish > /tmp/install \
-  && su octoblu - -c 'fish /tmp/install --noninteractive --path=/home/octoblu/.local/share/omf --config=/home/octoblu/.config/omf' \
+  && fish /tmp/install --noninteractive --path=/usr/local/share/omf --config=/usr/local/etc/omf \
   && rm /tmp/install
+
+RUN chmod -R 777 /usr/local
+
+ENV XDG_CONFIG_HOME=/usr/local/etc
+ENV XDG_DATA_HOME=/usr/local/share
