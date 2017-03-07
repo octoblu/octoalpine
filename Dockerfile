@@ -4,7 +4,7 @@ MAINTAINER Octoblu <docker@octoblu.com>
 RUN apk add -q --no-cache \
   curl docker openssh-client \
   bash jq python2 python2-dev py-setuptools \
-  gettext coreutils nodejs fish vim
+  gettext coreutils nodejs fish vim mdocml-apropos 
 
 RUN touch /.viminfo && chmod 777 /.viminfo
 
