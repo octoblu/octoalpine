@@ -16,6 +16,10 @@ RUN curl --silent -L http://get.oh-my.fish > /tmp/install \
   && fish /tmp/install --noninteractive --path=/usr/local/share/omf --config=/usr/local/etc/omf \
   && rm /tmp/install
 
+RUN curl -o /usr/local/bin/docker-swarm-diff -fsSL https://github.com/octoblu/docker-swarm-diff/releases/download/v1.0.1/docker-swarm-diff-linux-amd64 \
+  && chmod +x /usr/local/bin/docker-swarm-diff \
+  && ln -s /usr/local/bin/docker-swarm-diff /usr/local/bin/dsd
+
 RUN chmod -R 777 /usr/local
 
 ENV XDG_CONFIG_HOME=/usr/local/etc
