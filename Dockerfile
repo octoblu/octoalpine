@@ -9,9 +9,9 @@ RUN apk add -q --no-cache \
   jq gettext coreutils nodejs
 
 RUN python3 -m ensurepip \
-    && rm -r /usr/lib/python*/ensurepip \
-    && pip3 install --upgrade pip setuptools \
-    && rm -r /root/.cache
+  && rm -r /usr/lib/python*/ensurepip \
+  && pip3 install --upgrade pip setuptools \
+  && rm -r /root/.cache
 
 # gotta keep em seperated
 RUN pip3 install urwid \
