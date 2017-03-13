@@ -17,7 +17,6 @@ RUN python3 -m ensurepip \
 RUN pip3 install urwid \
   && pip3 install awscli logentries-lecli sen ctop
 
-RUN touch /.viminfo && chmod 777 /.viminfo
 COPY config /usr/local/etc/omf
 
 RUN curl --silent -L http://get.oh-my.fish > /tmp/install \
