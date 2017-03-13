@@ -17,7 +17,8 @@ RUN python3 -m ensurepip \
 RUN pip3 install urwid \
   && pip3 install awscli logentries-lecli sen ctop
 
-COPY config /usr/local/etc/omf
+COPY omf /usr/local/etc/omf
+COPY vim /usr/local/etc/vim
 
 RUN curl --silent -L http://get.oh-my.fish > /tmp/install \
   && fish /tmp/install --noninteractive --path=/usr/local/share/omf --config=/usr/local/etc/omf \
