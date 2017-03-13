@@ -13,8 +13,9 @@ RUN python3 -m ensurepip \
     && pip3 install --upgrade pip setuptools \
     && rm -r /root/.cache
 
-RUN pip3 install urwid
-RUN pip3 install awscli logentries-lecli sen
+# gotta keep em seperated
+RUN pip3 install urwid \
+  && pip3 install awscli logentries-lecli sen ctop
 
 RUN touch /.viminfo && chmod 777 /.viminfo
 COPY config /usr/local/etc/omf
