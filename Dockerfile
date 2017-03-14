@@ -4,6 +4,7 @@ MAINTAINER Octoblu <docker@octoblu.com>
 ENV XDG_CONFIG_HOME=/usr/local/etc
 ENV XDG_DATA_HOME=/usr/local/share
 ENV XDG_CACHE_HOME=/usr/local/cache
+ENV VIMINIT 'let $MYVIMRC="$XDG_CONFIG_HOME/vim/vimrc" | source $MYVIMRC'
 
 RUN apk add -q --no-cache \
   curl docker openssh-client \
