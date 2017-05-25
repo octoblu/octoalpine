@@ -33,6 +33,14 @@ RUN curl -o /usr/local/bin/docker-swarm-diff -fsSL https://github.com/octoblu/do
   && chmod +x /usr/local/bin/docker-swarm-diff \
   && ln -s /usr/local/bin/docker-swarm-diff /usr/local/bin/dsd
 
+RUN mkdir -p /tmp/remarshal \
+  && curl --silent -L https://github.com/dbohdan/remarshal/archive/e05b424abacfcf23655c20d891acb51450eba083.tar.gz \ 
+  | tar xzv --strip 1 -C /tmp/remarshal \
+  && cd /tmp/remarshal \
+  && python3 setup.py install \
+  && cd - \
+  && rm -rf /tmp/remarshal
+
 # install omf plugins
 COPY omf /usr/local/etc/omf
 RUN fish -c "omf install"
