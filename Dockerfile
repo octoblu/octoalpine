@@ -10,7 +10,7 @@ RUN apk add -q --no-cache \
   curl docker openssh-client \
   python3 python3-dev \
   mdocml-apropos libc-dev gcc \
-  bash fish vim \
+  bash fish vim git \
   util-linux bc \
   groff jq gettext coreutils nodejs
 
@@ -34,7 +34,7 @@ RUN curl -o /usr/local/bin/docker-swarm-diff -fsSL https://github.com/octoblu/do
   && ln -s /usr/local/bin/docker-swarm-diff /usr/local/bin/dsd
 
 RUN mkdir -p /tmp/remarshal \
-  && curl --silent -L https://github.com/dbohdan/remarshal/archive/e05b424abacfcf23655c20d891acb51450eba083.tar.gz \ 
+  && curl --silent -L https://github.com/dbohdan/remarshal/archive/e05b424abacfcf23655c20d891acb51450eba083.tar.gz \
   | tar xzv --strip 1 -C /tmp/remarshal \
   && cd /tmp/remarshal \
   && python3 setup.py install \
@@ -48,4 +48,3 @@ RUN fish -c "omf install"
 COPY vim /usr/local/etc/vim
 RUN mkdir -p /usr/local/cache/sen
 RUN chmod -R 777 /usr/local
-
