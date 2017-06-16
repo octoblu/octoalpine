@@ -14,7 +14,7 @@ set nomodeline
 syntax on
 autocmd BufRead APKBUILD set filetype=sh
 
-# Use 2 space soft tabs
+" Use 2 space soft tabs
 set expandtab
 set sw=2
 set tabstop=2
