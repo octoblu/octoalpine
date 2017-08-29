@@ -12,7 +12,8 @@ RUN apk add -q --no-cache \
   mdocml-apropos libc-dev gcc \
   bash fish vim git \
   util-linux bc \
-  groff jq gettext coreutils nodejs
+  groff jq gettext coreutils nodejs \
+  tmux
 
 RUN python3 -m ensurepip \
   && rm -r /usr/lib/python*/ensurepip \
